@@ -23,5 +23,20 @@ namespace NominaMVC.Controllers
 
         }
 
+        public IActionResult ReporteE()
+        {
+            return View();
+
+
+        }
+
+        public IActionResult ReporteA()
+        {
+           
+            return View();
+
+
+        }
+
     }
 }

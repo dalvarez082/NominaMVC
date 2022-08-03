@@ -14,6 +14,7 @@ namespace NominaMVC.Models
         public NominaContext(DbContextOptions<NominaContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<Pago> Pagos { get; set; } = null!;

@@ -7,7 +7,7 @@ namespace NominaMVC.Models
     {
         public Persona()
         {
-            Pagos = new HashSet<Pago>();
+            Pagos = new List<Pago>();
         }
 
         public string IdPersona { get; set; } = null!;

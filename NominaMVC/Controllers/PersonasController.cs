@@ -163,5 +163,8 @@ namespace NominaMVC.Controllers
         {
           return (_context.Personas?.Any(e => e.IdPersona == id)).GetValueOrDefault();
         }
+
+        
+
     }
 }
