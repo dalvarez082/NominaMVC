@@ -23,13 +23,15 @@ namespace NominaMVC.Controllers
 
         }
 
-        public IActionResult ReporteE()
+        // Get the payment info to reender in Report for Admins
+        public async Task<IActionResult> ReporteE()
         {
-            return View();
+            var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
+            return View(await nominaContext.ToListAsync());
 
 
         }
-
+        // Get the payment info to reender in Report for Admins
         public IActionResult ReporteA()
         {
            
