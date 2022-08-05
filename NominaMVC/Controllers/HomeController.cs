@@ -3,9 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using NominaMVC.Models;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+using NominaMVC.Data;
 
 namespace NominaMVC.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly NominaContext _DBNomina;
@@ -36,6 +39,26 @@ namespace NominaMVC.Controllers
         {
             var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
             return View(await nominaContext.ToListAsync());
+
+
+
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+
+
+
+
+       
+        public IActionResult ReporteE()
+        {
+           
+
+            return View();
+
 
 
         }

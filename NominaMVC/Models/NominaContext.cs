@@ -17,6 +17,7 @@ namespace NominaMVC.Models
 
         }
 
+
         public virtual DbSet<Pago> Pagos { get; set; } = null!;
         public virtual DbSet<Persona> Personas { get; set; } = null!;
         public virtual DbSet<Rol> Rols { get; set; } = null!;

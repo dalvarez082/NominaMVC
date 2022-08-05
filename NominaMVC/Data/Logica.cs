@@ -3,18 +3,20 @@ using NominaMVC.Models;
 
 namespace NominaMVC.Data
 {
-    public class Logica
+    public class Logica 
     {
-       
-        private NominaContext db = new NominaContext() ;
+        private NominaContext context;
 
-
+        public Logica(NominaContext context)
+        {
+            this.context = context;
+        }
 
         public List<Persona> listaPersona()
         {
 
            
-            List<Persona> lista = db.Personas.ToList();
+            List<Persona> lista = context.Personas.ToList();
             return lista;
 
         }
@@ -23,6 +25,8 @@ namespace NominaMVC.Data
         {
             return listaPersona().Where(e => e.IdPersona == identificacion && e.Contrasena == clave).FirstOrDefault();
         }
+
+       
        
         
     }

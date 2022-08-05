@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NominaMVC.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,20 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<NominaContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
+
+
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(option =>
+        {
+            option.LoginPath = "/Acceso/Index";
+            option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+            option.AccessDeniedPath = "/Home/Privacy";
+
+
+
+        });
 
 var app = builder.Build();
 
@@ -20,6 +35,8 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
