@@ -32,10 +32,10 @@ namespace NominaMVC.Controllers
 
         }
         // Get the payment info to reender in Report for Admins
-        public IActionResult ReporteA()
+        public async Task<IActionResult> ReporteA()
         {
-           
-            return View();
+            var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
+            return View(await nominaContext.ToListAsync());
 
 
         }
