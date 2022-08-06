@@ -11,14 +11,14 @@
             <!--STATS CARD CONTAINER-->
             <div class="row">
                 <!--STATS CARD 1-->
-                <div class="col-xl-4 col-lg-6">
+                <div class="col-xl-2 col-lg-6">
                     <div class="card card-stats mb-4 mb-xl-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">
                                         <i class="bi bi-person-fill"></i>
-                                        Role
+                                        Rol
                                     </h5>
                                     <span class="font-weight-bold mb-0">Sales</span>
                                 </div>
@@ -34,7 +34,7 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">
                                         <i class="bi bi-clock-history"></i>
-                                        Social Security contributions
+                                        Pagos a seguridad social
                                     </h5>
                                     <span class="h2 font-weight-bold mb-0">200.000</span>
                                 </div>
@@ -43,16 +43,32 @@
                     </div>
                 </div>
                 <!--STATS CARD 3-->
-                <div class="col-xl-4 col-lg-6">
+                <div class="col-xl-3 col-lg-6">
                     <div class="card card-stats mb-4 mb-xl-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">
                                         <i class="bi bi-cash-coin"></i>
-                                        Total Salary
+                                        Total pagos
                                     </h5>
-                                    <span class="h2 font-weight-bold mb-0">25.000.000</span>
+                                    <span class="h2 font-weight-bold mb-0">@Model.Sum(payment => payment.MontoPago)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--RENT STATEMENTS CARD-->
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        <i class="bi bi-cash-coin"></i>
+                                        Declara Renta
+                                    </h5>
+                                    <span class="h2 font-weight-bold mb-0">NO</span>
                                 </div>
                             </div>
                         </div>

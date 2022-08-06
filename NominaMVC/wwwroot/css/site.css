@@ -16,8 +16,7 @@ html {
 body {
   margin-bottom: 60px;
 }
-/* Test defining custom styles*/
 
-/*.text-red {
-    color: red;
-}*/
+.rent-badge {
+  background-color: green;
+}

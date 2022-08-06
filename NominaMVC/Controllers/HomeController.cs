@@ -8,7 +8,7 @@ using NominaMVC.Data;
 
 namespace NominaMVC.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         private readonly NominaContext _DBNomina;
@@ -26,7 +26,7 @@ namespace NominaMVC.Controllers
 
         }
 
-        // Get the payment info to reender in Report for Admins
+        // Get the payment info to render in Report for Admins
         public async Task<IActionResult> ReporteE()
         {
             var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
@@ -39,6 +39,13 @@ namespace NominaMVC.Controllers
         {
             var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
             return View(await nominaContext.ToListAsync());
+        }
+
+        public ActionResult GetPaymentsTotal()
+        {
+            ViewData["TotalPayments"] = _DBNomina.Pagos.Sum(payment => payment.MontoPago);
+            return View();
+
         }
     }
 }

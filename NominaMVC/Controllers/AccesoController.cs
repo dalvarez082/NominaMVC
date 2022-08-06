@@ -32,15 +32,7 @@ namespace NominaMVC.Controllers
 
             if(persona != null)
             {
-
-             
-
-
-
-
-
                 return RedirectToAction("Index", "Home");
-
             }
 
             else
