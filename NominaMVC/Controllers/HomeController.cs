@@ -39,29 +39,6 @@ namespace NominaMVC.Controllers
         {
             var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
             return View(await nominaContext.ToListAsync());
-
-
-
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
-
-
-
-
-
-       
-        public IActionResult ReporteE()
-        {
-           
-
-            return View();
-
-
-
-        }
-
     }
 }
