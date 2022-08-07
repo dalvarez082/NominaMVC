@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using NominaMVC.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +14,6 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<NominaContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
-
-
 
 
 

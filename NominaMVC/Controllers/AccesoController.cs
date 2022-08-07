@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NominaMVC.Models;
 using NominaMVC.Data;
+
+
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
-using System.Net.Security;
-
+using System.Security.Claims;
 
 namespace NominaMVC.Controllers
 {
@@ -24,7 +25,7 @@ namespace NominaMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(Persona _persona)
+        public async Task<IActionResult> IndexAsync(Persona _persona)
         {
             Logica logica = new Logica(_DBNomina);
 
@@ -33,14 +34,24 @@ namespace NominaMVC.Controllers
             if(persona != null)
             {
 
-             
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, persona.Nombre),
+                    new Claim("IdPersona", persona.IdPersona),
+                    new Claim(ClaimTypes.Role,Convert.ToString( persona.IdRol)),
+                };
+
+                
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
 
 
 
 
 
                 return RedirectToAction("Index", "Home");
-
             }
 
             else
@@ -50,8 +61,9 @@ namespace NominaMVC.Controllers
            
         }
 
-        public IActionResult Salir()
+        public async Task<IActionResult> Salir()
         {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Acceso");
         }
 

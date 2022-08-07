@@ -8,7 +8,7 @@ using NominaMVC.Data;
 
 namespace NominaMVC.Controllers
 {
-    
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly NominaContext _DBNomina;
@@ -26,10 +26,6 @@ namespace NominaMVC.Controllers
 
         }
 
-
-
-
-
         public IActionResult Privacy()
         {
             return View();
@@ -39,6 +35,7 @@ namespace NominaMVC.Controllers
 
 
 
+        [Authorize(Roles  = "1")]
        
         public IActionResult ReporteE()
         {

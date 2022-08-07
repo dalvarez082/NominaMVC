@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NominaMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NominaMVC.Controllers
 {
+    [Authorize(Roles = "2")]
     public class PagosController : Controller
     {
         private readonly NominaContext _context;

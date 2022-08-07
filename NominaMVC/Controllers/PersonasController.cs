@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using NominaMVC.Models;
 
 namespace NominaMVC.Controllers
 {
+    [Authorize(Roles = "2")]
     public class PersonasController : Controller
     {
         private readonly NominaContext _context;
