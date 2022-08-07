@@ -1,51 +1,67 @@
 ﻿@model IEnumerable<NominaMVC.Models.Pago>
 @{
-    ViewData["Title"] = "REPORTE EMPLEADO";
+    ViewData["Title"] = "ReporteA";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<<<<<<< HEAD
-<h1>Reportes para EMPLEADOS</h1>
-=======
-<h2 class="text-center mb-2">Reportes de Empleado</h2>
+<h2 class="text-center">Reportes para admin</h2>
 <div class="bg-light">
-    <div class="container">
+    <div class="mt-2 container">
         <div class="container-fluid">
             <!--STATS CARD CONTAINER-->
-            <div class="row">
-                <!--STATS CARD 1-->
-                <div class="col-xl-2 col-lg-6">
+            <div class="row mt-3">
+                <!--PAYMENTS STATS CARD 1-->
+                <div class="col-xl-3 col-lg-6">
                     <div class="card card-stats mb-4 mb-xl-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">
                                         <i class="bi bi-person-fill"></i>
-                                        Rol
+                                        Pagos procesados
                                     </h5>
-                                    <span class="font-weight-bold mb-0">Sales</span>
+                                    <span class="h2 font-weight-bold mb-0">@Model.Count().ToString()</span>
+                                    <!--Pagos count-->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--STATS CARD 2-->
-                <div class="col-xl-4 col-lg-6">
+                <!--INCOME STATEMENT STATS CARD 1-->
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                        <i class="bi bi-person-fill"></i>
+                                        Declarantes de Renta
+                                    </h5>
+                                    <!--TODO: COUNT ONLY INCOME FILLERS *-->
+                                    <span class="h2 font-weight-bold mb-0">@Model.Count().ToString()</span>
+                                    <!--Pagos count-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--WORK HOURS STATS CARD 2-->
+                <div class="col-xl-3 col-lg-6">
                     <div class="card card-stats mb-4 mb-xl-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">
                                         <i class="bi bi-clock-history"></i>
-                                        Pagos a seguridad social
+                                        Horas laborales
                                     </h5>
-                                    <span class="h2 font-weight-bold mb-0">200.000</span>
+                                    <span class="h2 font-weight-bold mb-0">40h/semanal</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--STATS CARD 3-->
+                <!--TOTAL PAYMENTS STATS CARD 3-->
                 <div class="col-xl-3 col-lg-6">
                     <div class="card card-stats mb-4 mb-xl-0">
                         <div class="card-body">
@@ -53,25 +69,10 @@
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">
                                         <i class="bi bi-cash-coin"></i>
-                                        Total pagos
+                                        Total pagado
                                     </h5>
-                                    <span class="h2 font-weight-bold mb-0">@Model.Sum(payment => payment.MontoPago)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--RENT STATEMENTS CARD-->
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card card-stats mb-4 mb-xl-0">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">
-                                        <i class="bi bi-cash-coin"></i>
-                                        Declara Renta
-                                    </h5>
-                                    <span class="h2 font-weight-bold mb-0">NO</span>
+                                    @*<span class="h2 font-weight-bold mb-0">@Model.Sum(payment => payment.MontoPago)</span>*@
+                                    <span class="h2 font-weight-bold mb-0">@ViewData["TotalPayments"] </span>
                                 </div>
                             </div>
                         </div>
@@ -93,24 +94,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var item in Model)
-                        {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.oPersona.IdPersona)</td>
-                            <td>@Html.DisplayFor(modelItem => item.oPersona.Nombre)</td>
-                            <td>$ @Html.DisplayFor(modelItem => item.MontoPago)</td>
-                            <td>
-                                <a asp-action="Details">Historial
-                                    <i class="bi bi-file-earmark-text"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        }
+                    @foreach(var item in Model)
+                    {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.oPersona.IdPersona)</td>
+                        <td>@Html.DisplayFor(modelItem => item.oPersona.Nombre)</td>
+                        <td>$ @Html.DisplayFor(modelItem => item.MontoPago)
+                                @if (item.MontoPago * 12 > 50000000)
+                                {
+                                    <span class="badge rent-badge">Declara renta</span>
+                                }
+                                @if(item.MontoPago < 50000000)
+                                {
+                                    <span class="badge rent-badge">NO Declara renta</span>
+                                }
+                                    
+                        </td>
+                        <td>                        
+                            <a asp-action="Details" asp-controller="Pagos">
+                                Historial
+                                <i class="bi bi-file-earmark-text"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    }
                     </tbody>     
                 </table>
             </div>
         </div>
     </div>
 </div>
->>>>>>> ad5ade18e75b6dd54e84c849d752b98c4ef309b7
 

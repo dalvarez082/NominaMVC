@@ -8,7 +8,11 @@ using NominaMVC.Data;
 
 namespace NominaMVC.Controllers
 {
+<<<<<<< HEAD
     //[Authorize]
+=======
+
+>>>>>>> ad5ade18e75b6dd54e84c849d752b98c4ef309b7
     public class HomeController : Controller
     {
         private readonly NominaContext _DBNomina;
@@ -26,6 +30,7 @@ namespace NominaMVC.Controllers
 
         }
 
+<<<<<<< HEAD
         public IActionResult Privacy()
         {
             return View();
@@ -43,9 +48,28 @@ namespace NominaMVC.Controllers
 
             return View();
 
+=======
+        // Get the payment info to render in Report for Admins
+        public async Task<IActionResult> ReporteE()
+        {
+            var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
+            return View(await nominaContext.ToListAsync());
+>>>>>>> ad5ade18e75b6dd54e84c849d752b98c4ef309b7
 
 
         }
+        // Get the payment info to reender in Report for Admins
+        public async Task<IActionResult> ReporteA()
+        {
+            var nominaContext = _DBNomina.Pagos.Include(payment => payment.oPersona);
+            return View(await nominaContext.ToListAsync());
+        }
 
+        public ActionResult GetPaymentsTotal()
+        {
+            ViewData["TotalPayments"] = _DBNomina.Pagos.Sum(payment => payment.MontoPago);
+            return View();
+
+        }
     }
 }
