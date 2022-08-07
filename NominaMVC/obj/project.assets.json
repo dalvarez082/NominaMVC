@@ -9949,19 +9949,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\57302\\.nuget\\packages\\": {}
+    "C:\\Users\\Diego Alvarez\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\57302\\Documents\\Udem_2022_2\\LENGUAJES-PARADIGMAS\\NominaMVC\\NominaMVC\\NominaMVC.csproj",
+      "projectUniqueName": "C:\\Users\\Diego Alvarez\\source\\repos\\NominaMVC\\NominaMVC\\NominaMVC.csproj",
       "projectName": "NominaMVC",
-      "projectPath": "C:\\Users\\57302\\Documents\\Udem_2022_2\\LENGUAJES-PARADIGMAS\\NominaMVC\\NominaMVC\\NominaMVC.csproj",
-      "packagesPath": "C:\\Users\\57302\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\57302\\Documents\\Udem_2022_2\\LENGUAJES-PARADIGMAS\\NominaMVC\\NominaMVC\\obj\\",
+      "projectPath": "C:\\Users\\Diego Alvarez\\source\\repos\\NominaMVC\\NominaMVC\\NominaMVC.csproj",
+      "packagesPath": "C:\\Users\\Diego Alvarez\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Diego Alvarez\\source\\repos\\NominaMVC\\NominaMVC\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\57302\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Diego Alvarez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10039,13 +10044,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\57302\\Documents\\Udem_2022_2\\LENGUAJES-PARADIGMAS\\NominaMVC\\NominaMVC\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

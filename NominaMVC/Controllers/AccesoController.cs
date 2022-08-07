@@ -56,7 +56,7 @@ namespace NominaMVC.Controllers
 
             else
             {
-                return View();
+                return RedirectToAction("Privacy", "Home");
             }
            
         }
