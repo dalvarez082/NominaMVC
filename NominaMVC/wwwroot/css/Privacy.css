@@ -1,0 +1,26 @@
+﻿@-webkit-keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@-webkit-keyframes blink-caret {
+    60% {
+        border-color: transparent;
+    }
+}
+
+body {
+    background-color: black;
+}
+
+.accessDenied {
+    /*font: bold 2em monospace;*/
+    color: darkred;
+    border-right: .1em solid white;
+    width: calc(0.55em * 14);
+    width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: typing 3s steps(14, end), blink-caret .5s step-end infinite alternate;
+}

@@ -1,0 +1,6 @@
+﻿namespace NominaMVC.wwwroot
+{
+    public class user
+    {
+    }
+}

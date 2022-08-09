@@ -7,32 +7,48 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/Login.css" />
+   
 
-</head>
-<body>
-    <div class="row mt-5">
-        <div class="col-sm-4 offset-sm-4">
-     <form asp-controller="Acceso" asp-action="Index" method="post">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Identificación</label>
-            <input type="text" class="form-control" asp-for="IdPersona">
+    </head>
+    <body>
+       <div class="wrapper fadeInDown">
+          <div id="formContent">
+            <!-- Tabs Titles -->
+            &nbsp;
+            <h2 class="active"> Sign In </h2>
+    
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+              <img src="~/uuser.ico" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->        
+
+            <form asp-controller="Acceso" asp-action="Index" method="post">
+             
+              <input type="text" id="login" class="form-control"  placeholder="ID PERSONA" asp-for="IdPersona">
+          
+              <input type="text" id="password" class="form-control"  placeholder="CONTRASEÑA" asp-for="Contrasena">
+
+              <input type="submit" class="fadeIn fourth" value="Ingresar">
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+               <h2 class="active"> NominaMVC </h2>
+            </div>
+
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" asp-for="Contrasena">
-          </div>
-
-          <button type="submit" class="btn btn-primary">Ingresar</button>
-    </form>
-
         </div>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    </div>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+    </body>
 </html>
+
+

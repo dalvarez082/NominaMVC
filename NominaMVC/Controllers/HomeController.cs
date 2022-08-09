@@ -24,6 +24,10 @@ namespace NominaMVC.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Relleno()
+        {
+            return View();
+        }
 
 
         public IActionResult Index()
@@ -34,6 +38,7 @@ namespace NominaMVC.Controllers
 
         }
 
+        [Authorize(Roles = "1")]
         // Get the payment info to render in Report for Admins
         public async Task<IActionResult> ReporteE()
         {
@@ -42,6 +47,7 @@ namespace NominaMVC.Controllers
 
 
         }
+        [Authorize(Roles = "2")]
         // Get the payment info to reender in Report for Admins
         public async Task<IActionResult> ReporteA()
         {

@@ -4,9 +4,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Editar Persona</h1>
 
-<h4>Persona</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -36,17 +36,18 @@
             <div class="form-group">
                 <label asp-for="Contrasena" class="control-label"></label>
                 <input asp-for="Contrasena" class="form-control" />
-                <span asp-validation-for="Contrasena" class="text-danger"></span>
+                <span asp-validation-for="Contrasena" class="text-danger "></span>
             </div>
+            &nbsp;
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" class="btn btn-success" value="Aceptar"  />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="badge bg-light">Back to List</a>
 </div>
 
 @section Scripts {

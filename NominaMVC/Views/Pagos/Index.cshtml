@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+&nbsp;
+<h2 class="text-center">Pagos</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success" >Realizar pago</a>
 </p>
 <table class="table">
     <thead>
@@ -19,7 +20,7 @@
                 @Html.DisplayNameFor(model => model.MontoPago)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.oPersona)
+                @Html.DisplayNameFor(model => model.IdPersona)
             </th>
             <th></th>
         </tr>
@@ -34,12 +35,12 @@
                 @Html.DisplayFor(modelItem => item.MontoPago)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.oPersona.IdPersona)
+                @Html.DisplayFor(modelItem => item.IdPersona)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPago">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdPago">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdPago">Delete</a>
+                <a asp-action="Edit" class="btn btn-outline-warning" asp-route-id="@item.IdPago">Edit</a> |
+                <a asp-action="Details"  class="btn btn-outline-info" asp-route-id="@item.IdPago">Details</a> |
+                <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.IdPago">Delete</a>
             </td>
         </tr>
 }
